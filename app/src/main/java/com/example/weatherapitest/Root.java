@@ -2,6 +2,30 @@ package com.example.weatherapitest;
 
 import java.util.ArrayList;
 
+public class Root{
+    public Coord coord;
+    public ArrayList<Weather> weather;
+    public String base;
+    public Main main;
+    public int visibility;
+    public Wind wind;
+    public Clouds clouds;
+    public int dt;
+    public Sys sys;
+    public int timezone;
+    public int id;
+    public String name;
+    public int cod;
+
+    public Main getMain() {
+        return main;
+    }
+
+    public void setMain(Main main) {
+        this.main = main;
+    }
+
+
 class Coord{
     public double lon;
     public double lat;
@@ -46,28 +70,5 @@ class Sys{
     public String country;
     public int sunrise;
     public int sunset;
-}
-
-public class Root{
-    public Coord coord;
-    public ArrayList<Weather> weather;
-    public String base;
-    public Main main;
-    public int visibility;
-    public Wind wind;
-    public Clouds clouds;
-    public int dt;
-    public Sys sys;
-    public int timezone;
-    public int id;
-    public String name;
-    public int cod;
-
-    public Main getMain() {
-        return main;
-    }
-
-    public void setMain(Main main) {
-        this.main = main;
     }
 }

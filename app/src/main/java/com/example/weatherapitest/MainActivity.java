@@ -12,6 +12,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
+import retrofit2.http.HTTP;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -24,11 +25,13 @@ public class MainActivity extends AppCompatActivity {
         View view = binding.getRoot();
         setContentView(view);
 
+        //The Retrofit class generates an implementation of the weatherApi interface.
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl("https://api.openweathermap.org/data/2.5/")
-                .addConverterFactory(GsonConverterFactory.create())
+                .addConverterFactory(GsonConverterFactory.create()) //将取出来的数据转换成Gson
                 .build();
 
+        //create retrofit
         WeatherApiInterface weatherApiInterface = retrofit.create(WeatherApiInterface.class);
 
         Call<Root> call = weatherApiInterface.getWeather();
@@ -38,8 +41,10 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<Root> call, Response<Root> response) {
                 Root root = response.body();
-                double temp = root.getMain().getTemp() - 273.15;
-                binding.tempTextView.setText(String.valueOf((int)temp)+"℃");
+                double a = root.getMain().getTemp();
+                int b = (int)(a-273.15);
+                String temp = String.valueOf(b);
+                binding.tempTextView.setText(temp+"℃");
             }
 
             @Override
