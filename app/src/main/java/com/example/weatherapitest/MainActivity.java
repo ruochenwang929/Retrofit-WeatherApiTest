@@ -39,12 +39,19 @@ public class MainActivity extends AppCompatActivity {
         //调用call方法时，拿到数据则用response，拿不到数据则用failure
         call.enqueue(new Callback<Root>() {
             @Override
-            public void onResponse(Call<Root> call, Response<Root> response) {
+            public void onResponse(Call<Root> call, Response<Root> response) { //response拿到的就是json文件
                 Root root = response.body();
                 double a = root.getMain().getTemp();
-                int b = (int)(a-273.15);
+                int b = (int)(a-273.15); //Change Kelvin to Celsius
                 String temp = String.valueOf(b);
                 binding.tempTextView.setText(temp+"℃");
+
+                String str = root.getWeather().get(0).getMain();
+                if (str.equals("Rain") || str.equals("Snow") || str.equals("Extreme")){
+                    binding.mainTextView.setText(str + ", recommended indoor exercise");
+                }
+                else
+                    binding.mainTextView.setText(str + ", recommended outdoor exercise");
             }
 
             @Override

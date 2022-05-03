@@ -21,12 +21,11 @@ public class Root{
         return main;
     }
 
-    public void setMain(Main main) {
-        this.main = main;
+    public ArrayList<Weather> getWeather() {
+        return weather;
     }
 
-
-class Coord{
+    class Coord{
     public double lon;
     public double lat;
 }
@@ -36,6 +35,10 @@ class Weather{
     public String main;
     public String description;
     public String icon;
+
+    public String getMain() {
+        return main;
+    }
 }
 
 class Main{
@@ -50,9 +53,6 @@ class Main{
         return temp;
     }
 
-    public void setTemp(double temp) {
-        this.temp = temp;
-    }
 }
 
 class Wind{

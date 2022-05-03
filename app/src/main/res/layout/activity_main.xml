@@ -8,7 +8,22 @@
     >
 
     <TextView
+        android:id="@+id/locationTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="30dp"
+        android:text="Shang Hai"
+        />
+
+    <TextView
         android:id="@+id/tempTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="30dp"
+        />
+
+    <TextView
+        android:id="@+id/mainTextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="30dp"
